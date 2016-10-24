@@ -13,6 +13,7 @@ namespace Project21
         private ConnectionState currentState = ConnectionState.Connected;
 
         Timer timer = new Timer();
+        Timer sessieUpdater = new Timer();
         public Bike bike { get; set; }
         string comPort = string.Empty;
 
@@ -28,6 +29,7 @@ namespace Project21
         private bool graph1 = false;
         clientGui second;
         private Graph graph;
+        private string sessieState = "warming-up";
 
         private Timer download;
 
@@ -46,7 +48,11 @@ namespace Project21
             download = new Timer();
             download.Tick += IncomingData;
             download.Interval = 1;
-            
+
+            sessieUpdater = new Timer();
+            sessieUpdater.Tick += SessieUpdater;
+            sessieUpdater.Interval = 1;
+
             //Create client, start function gets called when the user logs in
             client = new Client(Environment.UserName);
             comboBox3.SelectedIndexChanged += combo3SelectedIndexChanged;
@@ -76,6 +82,14 @@ namespace Project21
                     download.Stop();
                     Utilities.showPopup("Connection lost", this, true);
                     break;
+            }
+        }
+
+        private void SessieUpdater(Object sender, EventArgs e)
+        {
+            switch (sessieState)
+            {
+
             }
         }
 
