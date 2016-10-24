@@ -71,29 +71,29 @@ namespace Project21
                 byte[] MyMessage2 = System.Text.Encoding.UTF8.GetBytes(yourString1);
                 queue.Enqueue(MyMessage1);
 
-                while (true)
-                {
-                    //Console.WriteLine("Reading bicycle data...");
-
-                    string temp = "ST\r\n";
-                    char[] yourString = temp.ToCharArray();
-                    queue.Enqueue(System.Text.Encoding.UTF8.GetBytes(yourString));
-
-                    while (queue.Count > 0)
-                    {
-                        try
-                        {
-                            byte[] MyMessage = queue.Dequeue();
-                            mySerialPort.Write(MyMessage, 0, MyMessage.Length);
-                        }
-                        catch(System.InvalidOperationException) 
-                        {
-                            Console.WriteLine("exception occurred port was closed");
-                        }
-                    }
-                    //Print data
-                    Thread.Sleep(500);
-                }
+//                while (true)
+//                {
+//                    //Console.WriteLine("Reading bicycle data...");
+//
+//                    string temp = "ST\r\n";
+//                    char[] yourString = temp.ToCharArray();
+//                    queue.Enqueue(System.Text.Encoding.UTF8.GetBytes(yourString));
+//
+//                    while (queue.Count > 0)
+//                    {
+//                        try
+//                        {
+//                            byte[] MyMessage = queue.Dequeue();
+//                            mySerialPort.Write(MyMessage, 0, MyMessage.Length);
+//                        }
+//                        catch(System.InvalidOperationException) 
+//                        {
+//                            Console.WriteLine("exception occurred port was closed");
+//                        }
+//                    }
+//                    //Print data
+//                    Thread.Sleep(500);
+//                }
             }
             catch (System.IO.IOException)
             {
@@ -117,6 +117,26 @@ namespace Project21
                     bikeData.Add(fakeBike.getData());
                     PrintBikeDataList();
                     Thread.Sleep(500);
+                }
+            }
+        }
+
+        public void RequestData()
+        {
+            string temp = "ST\r\n";
+            char[] yourString = temp.ToCharArray();
+            queue.Enqueue(System.Text.Encoding.UTF8.GetBytes(yourString));
+            
+            while (queue.Count > 0)
+            {
+                try
+                {
+                    byte[] MyMessage = queue.Dequeue();
+                    mySerialPort.Write(MyMessage, 0, MyMessage.Length);
+                }
+                catch(System.InvalidOperationException) 
+                {
+                    Console.WriteLine("exception occurred port was closed");
                 }
             }
         }
