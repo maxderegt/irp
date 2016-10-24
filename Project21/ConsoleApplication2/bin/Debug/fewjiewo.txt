@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<ServerData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>fewjiewo</Name>
+  <Password>fejwi</Password>
+  <Doctor>false</Doctor>
+  <Messages />
+  <Results>
+    <string>2016-10-18 10:30:27 1 10 40 2 0 25 0 0 0 60</string>
+    <string>2016-10-18 10:30:28 2 100 40 255 4 25 4 0 0 60</string>
+    <string>2016-10-18 10:30:28 3 130 40 442 8 25 8 0 0 60</string>
+    <string>2016-10-18 10:30:29 4 74 40 93 12 25 12 0 1 60</string>
+    <string>2016-10-18 10:30:29 5 84 40 156 17 25 17 0 1 60</string>
+    <string>2016-10-18 10:30:30 6 108 40 305 21 25 21 0 2 60</string>
+    <string>2016-10-18 10:30:30 7 118 40 368 26 25 26 0 2 60</string>
+    <string>2016-10-18 10:30:31 8 120 40 376 30 25 30 0 3 60</string>
+    <string>2016-10-18 10:30:31 9 139 40 498 35 25 35 0 3 60</string>
+    <string>2016-10-18 10:30:32 10 125 40 410 39 25 39 0 4 60</string>
+    <string>2016-10-18 10:30:32 11 106 40 293 44 25 44 0 4 60</string>
+    <string>2016-10-18 10:30:33 12 130 40 443 48 25 48 0 5 60</string>
+    <string>2016-10-18 10:30:33 13 112 40 326 53 25 53 0 5 60</string>
+    <string>2016-10-18 10:30:34 14 93 40 210 58 25 58 0 6 60</string>
+    <string>2016-10-18 10:30:34 15 79 40 121 62 25 62 0 6 60</string>
+  </Results>
+</ServerData>

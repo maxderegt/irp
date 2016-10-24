@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<ServerData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>lol</Name>
+  <Password>lol</Password>
+  <Doctor>true</Doctor>
+  <Messages>
+    <string>message_Dokter_2016-10-18 02:18:17  Dokter Broadcast : 543543</string>
+    <string>message_Dokter_Client ajfoiewjfwafeoi has been disconnected</string>
+    <string>message_Dokter_Client ewaffewafwaefewa has been disconnected</string>
+    <string>message_Dokter_2016-10-19 10:30:24  Dokter Broadcast : seah boi</string>
+    <string>message_Dokter_Client myk has been disconnected</string>
+    <string>message_Dokter_Client jfoiewajfoiw has been disconnected</string>
+    <string>message_Dokter_2016-10-19 10:43:10  Dokter Broadcast : uygyu</string>
+    <string>message_Dokter_Client efjiwoefjio has been disconnected</string>
+    <string>message_Dokter_Client ewaffewa has been disconnected</string>
+  </Messages>
+  <Results />
+</ServerData>

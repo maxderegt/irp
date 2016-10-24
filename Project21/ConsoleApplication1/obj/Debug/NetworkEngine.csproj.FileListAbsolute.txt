@@ -1,0 +1,8 @@
+C:\Users\max\Documents\jaar 2\project 2.1\Project-2.1-Fiets\Project21\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
+C:\Users\max\Documents\jaar 2\project 2.1\Project-2.1-Fiets\Project21\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+C:\Users\max\Documents\jaar 2\project 2.1\Project-2.1-Fiets\Project21\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+C:\Users\max\Documents\jaar 2\project 2.1\Project-2.1-Fiets\Project21\ConsoleApplication1\bin\Debug\Newtonsoft.Json.dll
+C:\Users\max\Documents\jaar 2\project 2.1\Project-2.1-Fiets\Project21\ConsoleApplication1\bin\Debug\Newtonsoft.Json.xml
+C:\Users\max\Documents\jaar 2\project 2.1\Project-2.1-Fiets\Project21\ConsoleApplication1\obj\Debug\NetworkEngine.csprojResolveAssemblyReference.cache
+C:\Users\max\Documents\jaar 2\project 2.1\Project-2.1-Fiets\Project21\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
+C:\Users\max\Documents\jaar 2\project 2.1\Project-2.1-Fiets\Project21\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
