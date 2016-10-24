@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Net.Sockets;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Xml;
 using System.Xml.Serialization;
@@ -203,7 +204,7 @@ namespace TCPServer
                             case "start":
                                 break;
                             case "stop":
-                                SerializeObject(_data, _data.Name + ".txt");
+                                SerializeObject(_data, "session_" + _data.Name+".txt");
                                 break;
                             case "bike":
                                 _data.Results.Add(words[2]);
@@ -213,20 +214,13 @@ namespace TCPServer
                                 _data = newData;
                                 break;
                             case "set":
-                                _data = DeSerObject<ServerData>(words[1]);
+                                _data = DeSerObject<ServerData>("session_"+words[1]);
                                 break;
                             case "get":
                                 switch (words[1])
                                 {
-                                   case "graphdata":
-                                        foreach (string msg in _data.Results)
-                                        {
-                                            _uploadQeue.Add("graphdata_" + msg);
-                                        }
-                                        _uploadQeue.Add("graphdata_done");
-                                        break;
                                     case "connections":
-                                        string[] files = System.IO.Directory.GetFiles(Environment.CurrentDirectory, "sessie_*.txt");
+                                        string[] files = System.IO.Directory.GetFiles(Environment.CurrentDirectory, "session_*.txt");
                                         foreach (var VARIABLE in files)
                                         {
                                             string[] names = VARIABLE.Split(seperatingchar);
@@ -295,7 +289,6 @@ namespace TCPServer
         public void SerializeObject<T>(T serializableObject, string fileName)
         {
             if (serializableObject == null) { return; }
-
             try
             {
                 XmlDocument xmlDocument = new XmlDocument();
