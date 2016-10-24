@@ -4,7 +4,6 @@ using System.Drawing;
 using System.Threading;
 using System.Windows.Forms;
 using Timer = System.Windows.Forms.Timer;
-using TCPVRConnect;
 
 namespace Project21
 {
@@ -33,7 +32,6 @@ namespace Project21
         private Timer download;
 
         private Client client;
-        private VRConnect simulator;
 
         public static void Main(string[] args)
         {
@@ -195,13 +193,6 @@ namespace Project21
                                 UpdateGraph();
                             }
                             break;
-                        case "emergency":
-                            if (simulator != null)
-                            {
-                                Thread emergency = new Thread(new ThreadStart(simulator.makeEmergencyPanelCommand));
-                                emergency.Start();
-                            }
-                            break;
                         case "doctor":
                             doctor = true;
                             if (!created)
@@ -279,11 +270,6 @@ namespace Project21
             AcceptButton = button1;
             if (!doctor)
             {
-                //start netwerkengine
-                simulator = new VRConnect(client.userName, this);
-                Thread vrUpdate = new Thread(this.updateVR);
-                vrUpdate.Start();
-
                 bike = new Bike(comPort);
             }
             else
@@ -514,11 +500,6 @@ namespace Project21
         {
             chatBox.Clear();
 
-        }
-
-        public void updateVR()
-        {
-            simulator.updateGUIRef(this);
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
