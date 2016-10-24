@@ -199,24 +199,6 @@ namespace TCPServer
                     {
                         switch (words[0])
                         {
-                            case "message":
-                                foreach (var con in Connections)
-                                {
-                                    if (con._data.Name != null)
-                                    {
-                                        if (con._data.Name.Equals(words[1]))
-                                        {
-                                            con._data.Messages.Add(words[1]+"_"+words[2]);
-                                        }
-                                        else if (words[1].Equals("all"))
-                                        {
-                                            con._data.Messages.Add("message_Dokter_" + words[2]);
-                                            con._uploadQeue.Add("message_Dokter_"+words[2]);
-                                        }
-                                    }
-                                }
-                                break;
-                           
                             case "bike":
                                 foreach (var con in Connections)
                                 {
@@ -226,53 +208,10 @@ namespace TCPServer
                                 }
 
                                 break;
-                            case "update":
-                                foreach (var con in Connections)
-                                {
-                                    if(con._data.Name != null)
-                                    if (con._data.Name.Equals(words[1]))
-                                    {
-                                        if (con._data.Messages.Count != 0)
-                                            con._uploadQeue.Add("message_" + con._data.Messages[con._data.Messages.Count - 1]);
-                                    }
-                                }
-                                break;
-                            case "command":
-                                foreach (var con in Connections)
-                                {
-                                    if (con._data.Name != null)
-                                        if (con._data.Name.Equals(words[1]))
-                                    {
-                                        con._uploadQeue.Add("command_"+words[2]);
-                                    }
-                                }
-                                break;
-                            case "emergency":
-                                foreach (var con in Connections)
-                                {
-                                    if (con._data.Name != null)
-                                        if (con._data.Name.Equals(words[1]))
-                                        {
-                                            con._uploadQeue.Add("emergency");
-                                        }
-                                }
-                                break;
-                            case "get":
+                           case "get":
                                 switch (words[1])
                                 {
-                                    case "messages":
-                                        foreach (var con in Connections)
-                                        {
-                                            if (con._data.Name != null)
-                                                if (words[2].Equals(con._data.Name))
-                                                foreach (string msg in con._data.Messages)
-                                                {
-                                                    _uploadQeue.Add("message_" + msg);
-                                                }
-                                        }
-
-                                        break;
-                                    case "graphdata":
+                                   case "graphdata":
                                         foreach (var con in Connections)
                                         {
                                             if (con._data.Name != null)
@@ -288,11 +227,11 @@ namespace TCPServer
 
                                         break;
                                     case "connections":
-                                        foreach (var con in Connections)
+                                        string[] files = System.IO.Directory.GetFiles(Environment.CurrentDirectory, "sessie_*.txt");
+                                        foreach (var VARIABLE in files)
                                         {
-                                            if (con._data.Name != null)
-                                                if (!con._data.Doctor)
-                                                _uploadQeue.Add("client_" + con._data.Name);
+                                            string[] names = VARIABLE.Split(seperatingchar);
+                                            _uploadQeue.Add("client_"+names[1]);
                                         }
                                         break;
                                     case "data":

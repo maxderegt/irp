@@ -53,22 +53,6 @@ namespace Project21
             graph = new Graph();
             graph.Hide();
         }
-        public clientGui(bool created)
-        {
-            InitializeComponent();
-            this.created = created;
-            client = new Client(Environment.UserName);
-            Timer download = new Timer();
-            download.Tick += IncomingData;
-            download.Interval = 1;
-            download.Start();
-            comboBox3.SelectedIndexChanged += combo3SelectedIndexChanged;
-            loginPanel.Hide();
-            comPanel.Hide();
-            clientPanel.Show();
-            graph = new Graph();
-            graph.Hide();
-        }
 
         public Bike getBike()
         {
