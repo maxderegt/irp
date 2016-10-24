@@ -25,6 +25,7 @@ namespace Project21
         private string selected;
         bool secondClient = false;
         private bool created = false;
+
         private string sessieState = "warming-up";
         private int counter = 0;
         private int power = 25;
@@ -32,6 +33,7 @@ namespace Project21
         private int beginTijd = 0;
         private double VO2max = 0;
         private int leeftijd = 40;
+        private List<int> HR;
 
         private Timer download;
         private Timer getdata;
@@ -59,6 +61,8 @@ namespace Project21
             sessieUpdater = new Timer();
             sessieUpdater.Tick += SessieUpdater;
             sessieUpdater.Interval = 1000;
+
+            HR = new List<int>();
 
             //Create client, start function gets called when the user logs in
             client = new Client(Environment.UserName);
@@ -98,16 +102,6 @@ namespace Project21
                 case "warming-up":
                     bike.bikeCom.SendCommand("PW 25");
                     if (counter > 120)
-                        sessieState = "opregelen-power";
-                    break;
-
-                case "opregelen-power":
-                    if (bike.bikeCom.BikeList[bike.bikeCom.BikeList.Count - 1].pulse < 130)
-                    {
-                        power += 5;
-                        bike.bikeCom.SendCommand("PW " + power);
-                    }
-                    else
                         sessieState = "set-begin";
                     break;
 
@@ -117,33 +111,72 @@ namespace Project21
                     sessieState = "steady-state";
                     break;
 
-                case "steady-state":
-                    if (bike.bikeCom.BikeList[bike.bikeCom.BikeList.Count - 1].pulse < 130)
+                case "voorbereiding":
+                    if (counter % 60 == 0)
+                        UpdateData();
+                    if (bike.bikeCom.BikeList[bike.bikeCom.BikeList.Count - 1].rpm < 50)
                     {
                         power += 5;
                         bike.bikeCom.SendCommand("PW " + power);
                     }
-                    else if (bike.bikeCom.BikeList[bike.bikeCom.BikeList.Count - 1].pulse < (208 - leeftijd*0.7))
+                    else if (bike.bikeCom.BikeList[bike.bikeCom.BikeList.Count - 1].rpm > 60)
+                    {
+                        power -= 5;
+                        bike.bikeCom.SendCommand("PW " + power);
+                    }
+                    else if (bike.bikeCom.BikeList[bike.bikeCom.BikeList.Count - 1].pulse < (208 - int.Parse(comboBox1.SelectedText) * 0.7))
                     {
                         bike.bikeCom.SendCommand("PW 25");
                         sessieState = "stop-sessie";
                     }
-                    if (counter - beginTijd > 120)
-                        sessieState = "bereken_VO2";
+                    if (counter > 360)
+                        sessieState = "steady-state";
                     break;
 
-                case "bereken-VO2":
-                    VO2max = Vo2Max();
-                    beginTijd = counter;
-                    sessieState = "cooldown";
+                case "steady-state":
+                    if (counter % 15 == 0)
+                    {
+                        UpdateData();
+                        HR.Add(bike.bikeCom.BikeList[bike.bikeCom.BikeList.Count - 1].pulse);
+                    }   
+                    if (bike.bikeCom.BikeList[bike.bikeCom.BikeList.Count - 1].rpm < 50)
+                    {
+                        power += 5;
+                        bike.bikeCom.SendCommand("PW " + power);
+                    }
+                    else if (bike.bikeCom.BikeList[bike.bikeCom.BikeList.Count - 1].rpm > 60)
+                    {
+                        power -= 5;
+                        bike.bikeCom.SendCommand("PW " + power);
+                    }
+                    else if (bike.bikeCom.BikeList[bike.bikeCom.BikeList.Count - 1].pulse < (208 - int.Parse(comboBox1.SelectedText) * 0.7))
+                    {
+                        bike.bikeCom.SendCommand("PW 25");
+                        sessieState = "stop-sessie";
+                    }
+                    if (counter > 480)
+                    {
+                        if (((HR[0] - HR[5] < -5) && (HR[0] - HR[5] > 5)) || ((HR[5] - HR[9] < -5) && (HR[5] - HR[9] > 5)))
+                        {
+                            int total = 0;
+                            int aantal = 0;
+                            foreach (int hr in HR)
+                            {
+                                total += hr;
+                                total++;
+                            }
+                            Vo2Max(total / aantal);
+                        }
+                        sessieState = "cooldown";
+                    }    
                     break;
 
                 case "cooldown":
                     if (power > 25)
                         power -= 10;
                     bike.bikeCom.SendCommand("PW " + power);
-                    if (counter - beginTijd > 120)
-                        sessieState = "stop-seesie";
+                    if (counter > 600)
+                        sessieState = "stop-sessie";
                     break;
 
                 case "stop-sessie":
@@ -359,20 +392,20 @@ namespace Project21
             accNameBox.Focus();
         }
 
-        private double Vo2Max(/*int HRss*/)
+        private double Vo2Max(int HRsss)
         {
             double VO2max;
             double workload = bike.bikeCom.BikeList[bike.bikeCom.BikeList.Count - 1].actPower;
-            int HRss = 90; //dit moet gemiddelde HR zijn van de afgelopen 2 minuten na een HRss
+            int HRss = HRsss; //dit moet gemiddelde HR zijn van de afgelopen 2 minuten na een HRss
             workload = workload * 6.12;
             bool male = checkBox1.Checked;
             if (male)
             {
-                VO2max = (0.00212*workload + 0.299)/(0.769*HRss - 48.5)*100;
+                VO2max = (0.00212*workload + 0.299)/(0.769*HRss - 48.5)*1000;
             }
             else
             {
-                VO2max = (0.00193*workload + 0.326)/(0.769*HRss - 56.1)*100;
+                VO2max = (0.00193*workload + 0.326)/(0.769*HRss - 56.1)*1000;
             }
             int leeftijd = 35;
             switch (leeftijd)
