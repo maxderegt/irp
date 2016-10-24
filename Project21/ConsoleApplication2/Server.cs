@@ -201,14 +201,16 @@ namespace TCPServer
                         switch (words[0])
                         {
                             case "start":
-                                _saveTimer.Start();
                                 break;
                             case "stop":
                                 SerializeObject(_data, _data.Name + ".txt");
-                                _saveTimer.Stop();
                                 break;
                             case "bike":
                                 _data.Results.Add(words[2]);
+                                break;
+                            case "session":
+                                ServerData newData = new ServerData(words[1],"");
+                                _data = newData;
                                 break;
                             case "set":
                                 _data = DeSerObject<ServerData>(words[1]);
@@ -229,18 +231,6 @@ namespace TCPServer
                                         {
                                             string[] names = VARIABLE.Split(seperatingchar);
                                             _uploadQeue.Add("client_"+names[1]);
-                                        }
-                                        break;
-                                    case "data":
-                                        string[] Results = new string[_data.Results.Count];
-                                        _data.Results.CopyTo(Results);
-                                        foreach (string msg in Results)
-                                        {
-                                            if (!send.Contains(("meting_" + msg)))
-                                            {
-                                                _uploadQeue.Add("meting_" + msg);
-                                                send.Add("meting_" + msg);
-                                            }
                                         }
                                         break;
                                     case "alldata":

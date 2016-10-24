@@ -57,12 +57,6 @@
     <Compile Include="BikeData.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="EncryptDecrypt.cs" />
-    <Compile Include="Graph.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Graph.Designer.cs">
-      <DependentUpon>Graph.cs</DependentUpon>
-    </Compile>
     <Compile Include="PopupForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,9 +86,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Graph.resx">
-      <DependentUpon>Graph.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Gui.resx">
       <DependentUpon>Gui.cs</DependentUpon>
     </EmbeddedResource>

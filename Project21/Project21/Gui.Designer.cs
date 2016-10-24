@@ -32,8 +32,8 @@ namespace Project21
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(clientGui));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.loginPanel = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.comPanel = new System.Windows.Forms.Panel();
@@ -48,30 +48,11 @@ namespace Project21
             this.passBox = new System.Windows.Forms.TextBox();
             this.accNameBox = new System.Windows.Forms.TextBox();
             this.clientPanel = new System.Windows.Forms.Panel();
-            this.button6 = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.button3 = new System.Windows.Forms.Button();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.secondsv = new System.Windows.Forms.Label();
-            this.minutesv = new System.Windows.Forms.Label();
-            this.energyv = new System.Windows.Forms.Label();
-            this.reqpowerv = new System.Windows.Forms.Label();
-            this.distancev = new System.Windows.Forms.Label();
-            this.kmhv = new System.Windows.Forms.Label();
-            this.rpmv = new System.Windows.Forms.Label();
-            this.pulsev = new System.Windows.Forms.Label();
-            this.actpowerv = new System.Windows.Forms.Label();
-            this.actPower = new System.Windows.Forms.Label();
-            this.seconds = new System.Windows.Forms.Label();
-            this.minutes = new System.Windows.Forms.Label();
-            this.energy = new System.Windows.Forms.Label();
-            this.reqPower = new System.Windows.Forms.Label();
-            this.distance = new System.Windows.Forms.Label();
-            this.kmh = new System.Windows.Forms.Label();
-            this.rpm = new System.Windows.Forms.Label();
-            this.pulse = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
             this.loginPanel.SuspendLayout();
@@ -261,62 +242,27 @@ namespace Project21
             this.clientPanel.BackColor = System.Drawing.Color.Transparent;
             this.clientPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("clientPanel.BackgroundImage")));
             this.clientPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.clientPanel.Controls.Add(this.button6);
-            this.clientPanel.Controls.Add(this.label4);
+            this.clientPanel.Controls.Add(this.button1);
             this.clientPanel.Controls.Add(this.label3);
             this.clientPanel.Controls.Add(this.comboBox3);
             this.clientPanel.Controls.Add(this.button3);
             this.clientPanel.Controls.Add(this.chart1);
-            this.clientPanel.Controls.Add(this.secondsv);
-            this.clientPanel.Controls.Add(this.minutesv);
-            this.clientPanel.Controls.Add(this.energyv);
-            this.clientPanel.Controls.Add(this.reqpowerv);
-            this.clientPanel.Controls.Add(this.distancev);
-            this.clientPanel.Controls.Add(this.kmhv);
-            this.clientPanel.Controls.Add(this.rpmv);
-            this.clientPanel.Controls.Add(this.pulsev);
-            this.clientPanel.Controls.Add(this.actpowerv);
-            this.clientPanel.Controls.Add(this.actPower);
-            this.clientPanel.Controls.Add(this.seconds);
-            this.clientPanel.Controls.Add(this.minutes);
-            this.clientPanel.Controls.Add(this.energy);
-            this.clientPanel.Controls.Add(this.reqPower);
-            this.clientPanel.Controls.Add(this.distance);
-            this.clientPanel.Controls.Add(this.kmh);
-            this.clientPanel.Controls.Add(this.rpm);
-            this.clientPanel.Controls.Add(this.pulse);
             this.clientPanel.Location = new System.Drawing.Point(11, 11);
             this.clientPanel.Margin = new System.Windows.Forms.Padding(2);
             this.clientPanel.Name = "clientPanel";
-            this.clientPanel.Size = new System.Drawing.Size(1091, 532);
+            this.clientPanel.Size = new System.Drawing.Size(1085, 532);
             this.clientPanel.TabIndex = 3;
             this.clientPanel.Visible = false;
             // 
-            // button6
+            // button1
             // 
-            this.button6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button6.BackgroundImage")));
-            this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.Color.White;
-            this.button6.Location = new System.Drawing.Point(411, 350);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(105, 33);
-            this.button6.TabIndex = 62;
-            this.button6.Text = "Historical data";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(477, 49);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(101, 15);
-            this.label4.TabIndex = 55;
-            this.label4.Text = "Fietsgegevens";
+            this.button1.Location = new System.Drawing.Point(450, 86);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(107, 33);
+            this.button1.TabIndex = 63;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label3
             // 
@@ -336,7 +282,7 @@ namespace Project21
             this.comboBox3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox3.ForeColor = System.Drawing.Color.DimGray;
             this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(413, 389);
+            this.comboBox3.Location = new System.Drawing.Point(196, 91);
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(231, 23);
             this.comboBox3.TabIndex = 50;
@@ -348,7 +294,7 @@ namespace Project21
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(522, 350);
+            this.button3.Location = new System.Drawing.Point(85, 86);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(105, 33);
             this.button3.TabIndex = 51;
@@ -362,235 +308,19 @@ namespace Project21
             this.chart1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.chart1.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Center;
             this.chart1.BorderlineColor = System.Drawing.Color.Black;
-            chartArea3.AxisX.Maximum = 30D;
-            chartArea3.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea3);
-            this.chart1.Location = new System.Drawing.Point(34, 85);
+            chartArea1.AxisX.Maximum = 30D;
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            this.chart1.Location = new System.Drawing.Point(41, 136);
             this.chart1.Name = "chart1";
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series3.IsVisibleInLegend = false;
-            series3.Name = "Series1";
-            this.chart1.Series.Add(series3);
-            this.chart1.Size = new System.Drawing.Size(357, 360);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series1.IsVisibleInLegend = false;
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
+            this.chart1.Size = new System.Drawing.Size(607, 360);
             this.chart1.TabIndex = 48;
             this.chart1.Text = "chart1";
-            // 
-            // secondsv
-            // 
-            this.secondsv.AutoSize = true;
-            this.secondsv.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.secondsv.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.secondsv.Location = new System.Drawing.Point(529, 281);
-            this.secondsv.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.secondsv.Name = "secondsv";
-            this.secondsv.Size = new System.Drawing.Size(111, 22);
-            this.secondsv.TabIndex = 43;
-            this.secondsv.Text = "no data yet";
-            // 
-            // minutesv
-            // 
-            this.minutesv.AutoSize = true;
-            this.minutesv.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minutesv.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.minutesv.Location = new System.Drawing.Point(529, 257);
-            this.minutesv.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.minutesv.Name = "minutesv";
-            this.minutesv.Size = new System.Drawing.Size(111, 22);
-            this.minutesv.TabIndex = 42;
-            this.minutesv.Text = "no data yet";
-            // 
-            // energyv
-            // 
-            this.energyv.AutoSize = true;
-            this.energyv.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.energyv.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.energyv.Location = new System.Drawing.Point(529, 229);
-            this.energyv.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.energyv.Name = "energyv";
-            this.energyv.Size = new System.Drawing.Size(111, 22);
-            this.energyv.TabIndex = 41;
-            this.energyv.Text = "no data yet";
-            // 
-            // reqpowerv
-            // 
-            this.reqpowerv.AutoSize = true;
-            this.reqpowerv.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.reqpowerv.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.reqpowerv.Location = new System.Drawing.Point(529, 202);
-            this.reqpowerv.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.reqpowerv.Name = "reqpowerv";
-            this.reqpowerv.Size = new System.Drawing.Size(111, 22);
-            this.reqpowerv.TabIndex = 40;
-            this.reqpowerv.Text = "no data yet";
-            // 
-            // distancev
-            // 
-            this.distancev.AutoSize = true;
-            this.distancev.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.distancev.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.distancev.Location = new System.Drawing.Point(529, 178);
-            this.distancev.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.distancev.Name = "distancev";
-            this.distancev.Size = new System.Drawing.Size(111, 22);
-            this.distancev.TabIndex = 39;
-            this.distancev.Text = "no data yet";
-            // 
-            // kmhv
-            // 
-            this.kmhv.AutoSize = true;
-            this.kmhv.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kmhv.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.kmhv.Location = new System.Drawing.Point(529, 154);
-            this.kmhv.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.kmhv.Name = "kmhv";
-            this.kmhv.Size = new System.Drawing.Size(111, 22);
-            this.kmhv.TabIndex = 38;
-            this.kmhv.Text = "no data yet";
-            // 
-            // rpmv
-            // 
-            this.rpmv.AutoSize = true;
-            this.rpmv.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rpmv.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.rpmv.Location = new System.Drawing.Point(529, 128);
-            this.rpmv.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.rpmv.Name = "rpmv";
-            this.rpmv.Size = new System.Drawing.Size(111, 22);
-            this.rpmv.TabIndex = 37;
-            this.rpmv.Text = "no data yet";
-            // 
-            // pulsev
-            // 
-            this.pulsev.AutoSize = true;
-            this.pulsev.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pulsev.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.pulsev.Location = new System.Drawing.Point(529, 100);
-            this.pulsev.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.pulsev.Name = "pulsev";
-            this.pulsev.Size = new System.Drawing.Size(111, 22);
-            this.pulsev.TabIndex = 36;
-            this.pulsev.Text = "no data yet";
-            // 
-            // actpowerv
-            // 
-            this.actpowerv.AutoSize = true;
-            this.actpowerv.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.actpowerv.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.actpowerv.Location = new System.Drawing.Point(529, 305);
-            this.actpowerv.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.actpowerv.Name = "actpowerv";
-            this.actpowerv.Size = new System.Drawing.Size(111, 22);
-            this.actpowerv.TabIndex = 35;
-            this.actpowerv.Text = "no data yet";
-            // 
-            // actPower
-            // 
-            this.actPower.AutoSize = true;
-            this.actPower.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.actPower.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.actPower.Location = new System.Drawing.Point(428, 305);
-            this.actPower.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.actPower.Name = "actPower";
-            this.actPower.Size = new System.Drawing.Size(100, 22);
-            this.actPower.TabIndex = 34;
-            this.actPower.Text = "ActPower";
-            // 
-            // seconds
-            // 
-            this.seconds.AutoSize = true;
-            this.seconds.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.seconds.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.seconds.Location = new System.Drawing.Point(428, 281);
-            this.seconds.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.seconds.Name = "seconds";
-            this.seconds.Size = new System.Drawing.Size(89, 22);
-            this.seconds.TabIndex = 33;
-            this.seconds.Text = "Seconds";
-            // 
-            // minutes
-            // 
-            this.minutes.AutoSize = true;
-            this.minutes.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minutes.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.minutes.Location = new System.Drawing.Point(428, 257);
-            this.minutes.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.minutes.Name = "minutes";
-            this.minutes.Size = new System.Drawing.Size(81, 22);
-            this.minutes.TabIndex = 32;
-            this.minutes.Text = "Minutes";
-            // 
-            // energy
-            // 
-            this.energy.AutoSize = true;
-            this.energy.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.energy.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.energy.Location = new System.Drawing.Point(428, 229);
-            this.energy.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.energy.Name = "energy";
-            this.energy.Size = new System.Drawing.Size(75, 22);
-            this.energy.TabIndex = 31;
-            this.energy.Text = "Energy";
-            // 
-            // reqPower
-            // 
-            this.reqPower.AutoSize = true;
-            this.reqPower.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.reqPower.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.reqPower.Location = new System.Drawing.Point(428, 202);
-            this.reqPower.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.reqPower.Name = "reqPower";
-            this.reqPower.Size = new System.Drawing.Size(105, 22);
-            this.reqPower.TabIndex = 30;
-            this.reqPower.Text = "ReqPower";
-            // 
-            // distance
-            // 
-            this.distance.AutoSize = true;
-            this.distance.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.distance.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.distance.Location = new System.Drawing.Point(428, 178);
-            this.distance.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.distance.Name = "distance";
-            this.distance.Size = new System.Drawing.Size(90, 22);
-            this.distance.TabIndex = 29;
-            this.distance.Text = "Distance";
-            // 
-            // kmh
-            // 
-            this.kmh.AutoSize = true;
-            this.kmh.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.kmh.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.kmh.Location = new System.Drawing.Point(428, 154);
-            this.kmh.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.kmh.Name = "kmh";
-            this.kmh.Size = new System.Drawing.Size(49, 22);
-            this.kmh.TabIndex = 28;
-            this.kmh.Text = "kmh";
-            // 
-            // rpm
-            // 
-            this.rpm.AutoSize = true;
-            this.rpm.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rpm.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.rpm.Location = new System.Drawing.Point(428, 128);
-            this.rpm.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.rpm.Name = "rpm";
-            this.rpm.Size = new System.Drawing.Size(53, 22);
-            this.rpm.TabIndex = 27;
-            this.rpm.Text = "Rpm";
-            // 
-            // pulse
-            // 
-            this.pulse.AutoSize = true;
-            this.pulse.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pulse.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.pulse.Location = new System.Drawing.Point(428, 100);
-            this.pulse.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.pulse.Name = "pulse";
-            this.pulse.Size = new System.Drawing.Size(60, 22);
-            this.pulse.TabIndex = 23;
-            this.pulse.Text = "Pulse";
             // 
             // fileSystemWatcher1
             // 
@@ -641,24 +371,6 @@ namespace Project21
         private System.Windows.Forms.TextBox comTextBox;
         private System.Windows.Forms.Button comOKButton;
         private System.Windows.Forms.Panel clientPanel;
-        private System.Windows.Forms.Label secondsv;
-        private System.Windows.Forms.Label minutesv;
-        private System.Windows.Forms.Label energyv;
-        private System.Windows.Forms.Label reqpowerv;
-        private System.Windows.Forms.Label distancev;
-        private System.Windows.Forms.Label kmhv;
-        private System.Windows.Forms.Label rpmv;
-        private System.Windows.Forms.Label pulsev;
-        private System.Windows.Forms.Label actpowerv;
-        private System.Windows.Forms.Label actPower;
-        private System.Windows.Forms.Label seconds;
-        private System.Windows.Forms.Label minutes;
-        private System.Windows.Forms.Label energy;
-        private System.Windows.Forms.Label reqPower;
-        private System.Windows.Forms.Label distance;
-        private System.Windows.Forms.Label kmh;
-        private System.Windows.Forms.Label rpm;
-        private System.Windows.Forms.Label pulse;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Button button3;
@@ -666,10 +378,9 @@ namespace Project21
         private System.Windows.Forms.Label usernameLabel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.IO.FileSystemWatcher fileSystemWatcher1;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button1;
     }
 }

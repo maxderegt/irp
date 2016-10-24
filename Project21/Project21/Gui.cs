@@ -19,19 +19,16 @@ namespace Project21
 
         public List<string> Messages { get; set; } = new List<string>();
         public List<string[]> Results { get; set; } = new List<string[]>();
-        public List<string[]> graphdata { get; set; } = new List<string[]>();
         public bool doctor = false;
         private string[] data;
         private string clientname;
         private string selected;
         bool secondClient = false;
         private bool created = false;
-        private bool graph1 = false;
-        clientGui second;
-        private Graph graph;
         private string sessieState = "warming-up";
 
         private Timer download;
+        private Timer getdata;
 
         private Client client;
 
@@ -49,15 +46,17 @@ namespace Project21
             download.Tick += IncomingData;
             download.Interval = 1;
 
+            getdata = new Timer();
+            getdata.Tick += ClientData;
+            getdata.Interval = 500;
+
             sessieUpdater = new Timer();
             sessieUpdater.Tick += SessieUpdater;
-            sessieUpdater.Interval = 1;
+            sessieUpdater.Interval = 1000;
 
             //Create client, start function gets called when the user logs in
             client = new Client(Environment.UserName);
             comboBox3.SelectedIndexChanged += combo3SelectedIndexChanged;
-            graph = new Graph();
-            graph.Hide();
         }
 
         public Bike getBike()
@@ -138,20 +137,6 @@ namespace Project21
                         case "command":
                             bike.bikeCom.SendCommand(words[1]);
                             break;
-                        case "graphdata":
-                            if (!words[1].Equals("done"))
-                            {
-                                string[] separating = { " " };
-                                string[] dat = words[1].Split(separating, System.StringSplitOptions.RemoveEmptyEntries);
-                                graphdata.Add(dat);
-                            }
-                            else if (words[1].Equals("done")&&graph1 == false)
-                            {
-                                graph.graphdata = graphdata;
-                                graph.updatechart();
-                                graph.Show();
-                            }
-                            break;
                         case "meting":
                             string[] separatingChars = { " " };
                             data = words[1].Split(separatingChars, System.StringSplitOptions.RemoveEmptyEntries);
@@ -166,21 +151,13 @@ namespace Project21
                             break;
                         case "doctor":
                             doctor = true;
-                            if (!created)
-                            {
-                                second = new clientGui();
-                            }
                             timer.Tick += Tick;
                             timer.Interval = 500;
                             timer.Start();
-                            Timer getdata = new Timer();
-                            getdata.Tick += ClientData;
-                            getdata.Interval = 500;
                             client.UploadQeue.Add("get_connections");                            
                             clientPanel.Show();
                             comboBox3.Show();
                             button3.Show();
-                            button6.Show();
                             comPanel.Hide();
                             loginPanel.Hide();
                             this.AutoSize = false;
@@ -207,7 +184,6 @@ namespace Project21
             comPanel.Hide();
             comboBox3.Hide();
             button3.Hide();
-            button6.Hide();
         }
 
         private void comOKButton_Click(object sender, EventArgs e)
@@ -221,7 +197,6 @@ namespace Project21
             }
             timer.Tick += Tick;
             timer.Interval = 500;
-            timer.Start();
             if (!doctor)
             {
                 client.UploadQeue.Add("get_messages_" + clientname);
@@ -276,15 +251,6 @@ namespace Project21
                     //updating the labels
                     client.UploadQeue.Add("bike_" + clientname + "_" +
                     bike.bikeCom.BikeList[bike.bikeCom.BikeList.Count - 1].GetAll());
-                    pulsev.Text = bike.bikeCom.BikeList[bike.bikeCom.BikeList.Count - 1].pulse.ToString();
-                    rpmv.Text = bike.bikeCom.BikeList[bike.bikeCom.BikeList.Count - 1].rpm.ToString();
-                    kmhv.Text = bike.bikeCom.BikeList[bike.bikeCom.BikeList.Count - 1].kmh.ToString();
-                    distancev.Text = bike.bikeCom.BikeList[bike.bikeCom.BikeList.Count - 1].distance.ToString();
-                    reqpowerv.Text = bike.bikeCom.BikeList[bike.bikeCom.BikeList.Count - 1].reqPower.ToString();
-                    energyv.Text = bike.bikeCom.BikeList[bike.bikeCom.BikeList.Count - 1].energy.ToString();
-                    minutesv.Text = bike.bikeCom.BikeList[bike.bikeCom.BikeList.Count - 1].minutes.ToString();
-                    secondsv.Text = bike.bikeCom.BikeList[bike.bikeCom.BikeList.Count - 1].seconds.ToString();
-                    actpowerv.Text = bike.bikeCom.BikeList[bike.bikeCom.BikeList.Count - 1].actPower.ToString();
                     chart1.Series[0].Points.Add(bike.bikeCom.BikeList[bike.bikeCom.BikeList.Count - 1].pulse);
                     if (chart1.Series[0].Points.Count == 30) chart1.Series[0].Points.RemoveAt(0);
                 }
@@ -299,15 +265,6 @@ namespace Project21
                 if (Results.Count > 0)
                 {
                     //updating the labels
-                    pulsev.Text = Results[Results.Count - 1][3].ToString();
-                    rpmv.Text = Results[Results.Count - 1][4].ToString();
-                    kmhv.Text = Results[Results.Count - 1][5].ToString();
-                    distancev.Text = Results[Results.Count - 1][6].ToString();
-                    reqpowerv.Text = Results[Results.Count - 1][7].ToString();
-                    energyv.Text = Results[Results.Count - 1][8].ToString();
-                    minutesv.Text = Results[Results.Count - 1][9].ToString();
-                    secondsv.Text = Results[Results.Count - 1][10].ToString();
-                    actpowerv.Text = Results[Results.Count - 1][11].ToString();
                     chart1.Series[0].Points.Add(Int32.Parse(Results[Results.Count - 1][3]));
                 }
 
@@ -337,13 +294,6 @@ namespace Project21
             AcceptButton = logInButton;
             accNameBox.Focus();
         }
-        private void button6_Click(object sender, EventArgs e)
-        {
-            if (comboBox3.SelectedItem != null)
-            {
-                client.UploadQeue.Add("get_graphdata_" + comboBox3.SelectedItem.ToString());
-            }
-        }
 
         private double Vo2Max()
         {
@@ -367,9 +317,14 @@ namespace Project21
 
             return 0;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            client.UploadQeue.Add("session_"+client.userName+" "+DateTime.Now);
+            timer.Start();
+            sessieUpdater.Start();
+        }
     }
-    //start button
-    //uploadque.add("set_"+clientname);
-    //getdata.Start();
+    
     
 }
