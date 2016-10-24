@@ -35,6 +35,8 @@ namespace Project21
         private int power = 25;
         private int beginDistance = 0;
         private int beginTijd = 0;
+        private double VO2max = 0;
+        private int leeftijd = 40;
 
         private Timer download;
 
@@ -118,7 +120,39 @@ namespace Project21
                     break;
 
                 case "steady-state":
+                    if (bike.bikeCom.BikeList[bike.bikeCom.BikeList.Count - 1].pulse < 130)
+                    {
+                        power += 5;
+                        bike.bikeCom.SendCommand("PW " + power);
+                    }
+                    else if (bike.bikeCom.BikeList[bike.bikeCom.BikeList.Count - 1].pulse < (208 - leeftijd*0.7))
+                    {
+                        bike.bikeCom.SendCommand("PW 25");
+                        sessieState = "stop-sessie";
+                    }
+                    if (counter - beginTijd > 120)
+                        sessieState = "bereken_VO2";
+                    break;
 
+                case "bereken-VO2":
+                    double distance = (bike.bikeCom.BikeList[bike.bikeCom.BikeList.Count - 1].distance - beginDistance) / 10;
+                    VO2max = Vo2Max(distance);
+                    beginTijd = counter;
+                    sessieState = "cooldown";
+                    break;
+
+                case "cooldown":
+                    if (power > 25)
+                        power -= 10;
+                    bike.bikeCom.SendCommand("PW " + power);
+                    if (counter - beginTijd > 120)
+                        sessieState = "stop-seesie";
+                    break;
+
+                case "stop-sessie":
+                    beginTijd = 0;
+                    beginDistance = 0;
+                    client.UploadQeue.Add("stop");
                     break;
             }
         }
@@ -375,11 +409,11 @@ namespace Project21
             }
         }
 
-        private double Vo2Max()
+        private double Vo2Max(double distance)
         {
-            var af = bike.bikeCom.BikeList[bike.bikeCom.BikeList.Count - 1].distance;
-            var mi = bike.bikeCom.BikeList[bike.bikeCom.BikeList.Count - 1].minutes;
-            var se = bike.bikeCom.BikeList[bike.bikeCom.BikeList.Count - 1].seconds;
+            var af = distance;
+            var mi = 2;
+            var se = 0;
             var tt=0.0;
             var hh=0.0;
             var pm=0.0;
