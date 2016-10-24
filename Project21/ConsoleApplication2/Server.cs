@@ -8,6 +8,7 @@ using System.Xml;
 using System.Xml.Serialization;
 using static TCPServer.SendingRecieving;
 using static TCPServer.EncryptDecrypt;
+using Timer = System.Timers.Timer;
 
 namespace TCPServer
 {
@@ -66,6 +67,7 @@ namespace TCPServer
         private List<string> _downloaded = new List<string>();
         private List<string> send = new List<string>();
         private List<Connection> Connections;
+        private Timer _saveTimer;
 
         public delegate void NotifyExit();
         public event NotifyExit ClientTerminatedEvent;
@@ -82,6 +84,8 @@ namespace TCPServer
             _data = new ServerData();
             this.client = client;
             Connections = connections;
+            _saveTimer = new System.Timers.Timer(1000);
+            _saveTimer.Elapsed += Timer_Tick;
 
             //Notify event handler
             ClientTerminatedEvent += exit;
@@ -191,40 +195,33 @@ namespace TCPServer
                                 continue;
                             }
                         }
-                        System.Timers.Timer timer = new System.Timers.Timer(1000);
-                        timer.Elapsed += Timer_Tick;
-                        timer.Start();
                     }
                     else
                     {
                         switch (words[0])
                         {
-                            case "bike":
-                                foreach (var con in Connections)
-                                {
-                                    if (con._data.Name != null)
-                                        if (con._data.Name.Equals(words[1]))
-                                            con._data.Results.Add(words[2]);
-                                }
-
+                            case "start":
+                                _saveTimer.Start();
                                 break;
-                           case "get":
+                            case "stop":
+                                SerializeObject(_data, _data.Name + ".txt");
+                                _saveTimer.Stop();
+                                break;
+                            case "bike":
+                                _data.Results.Add(words[2]);
+                                break;
+                            case "set":
+                                _data = DeSerObject<ServerData>(words[1]);
+                                break;
+                            case "get":
                                 switch (words[1])
                                 {
                                    case "graphdata":
-                                        foreach (var con in Connections)
+                                        foreach (string msg in _data.Results)
                                         {
-                                            if (con._data.Name != null)
-                                                if (words[2].Equals(con._data.Name))
-                                                {
-                                                    foreach (string msg in con._data.Results)
-                                                    {
-                                                        con._uploadQeue.Add("graphdata_" + msg);
-                                                    }
-                                                    con._uploadQeue.Add("graphdata_done");
-                                                }
+                                            _uploadQeue.Add("graphdata_" + msg);
                                         }
-
+                                        _uploadQeue.Add("graphdata_done");
                                         break;
                                     case "connections":
                                         string[] files = System.IO.Directory.GetFiles(Environment.CurrentDirectory, "sessie_*.txt");
@@ -235,53 +232,25 @@ namespace TCPServer
                                         }
                                         break;
                                     case "data":
-                                            foreach (var con in Connections)
+                                        string[] Results = new string[_data.Results.Count];
+                                        _data.Results.CopyTo(Results);
+                                        foreach (string msg in Results)
                                         {
-                                            if (con._data.Name != null)
-                                                if (words[2].Equals(con._data.Name))
-                                                {
-                                                    List<string> Messages = con._data.Messages;
-                                                    foreach (string msg in Messages)
-                                                    {
-                                                        if (!send.Contains(("message_" + msg)))
-                                                        {
-                                                            _uploadQeue.Add("message_" + msg);
-                                                            send.Add("message_" + msg);
-                                                        }
-                                                    }
-                                                    string[] Results = new string[con._data.Results.Count];
-                                                    con._data.Results.CopyTo(Results);
-                                                    foreach (string msg in Results)
-                                                    {
-                                                        if (!send.Contains(("meting_" + msg)))
-                                                        {
-                                                            _uploadQeue.Add("meting_" + msg);
-                                                            send.Add("meting_" + msg);
-                                                        }
-                                                    }
-                                                }
+                                            if (!send.Contains(("meting_" + msg)))
+                                            {
+                                                _uploadQeue.Add("meting_" + msg);
+                                                send.Add("meting_" + msg);
                                             }
+                                        }
                                         break;
                                     case "alldata":
-                                            foreach (var con in Connections)
-                                        {
-                                            if (con._data.Name != null)
-                                                if (words[2].Equals(con._data.Name))
-                                                {
-                                                    foreach (string msg in con._data.Messages)
-                                                {
-                                                    _uploadQeue.Add("message_" + msg);
-                                                    send.Add("message_" + msg);
-                                                }
-                                                
-                                                    foreach (string msg in con._data.Results)
-                                                    {
-                                                        _uploadQeue.Add("meting_" + msg);
-                                                        send.Add("meting_" + msg);
-                                                    }
-                                                }
+                                            
+                                            foreach (string msg in _data.Results)
+                                            {
+                                                _uploadQeue.Add("meting_" + msg);
+                                                send.Add("meting_" + msg);
                                             }
-                                        break;
+                                    break;
                                 }
                                 break;
                         }

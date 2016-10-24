@@ -176,7 +176,6 @@ namespace Project21
                             Timer getdata = new Timer();
                             getdata.Tick += ClientData;
                             getdata.Interval = 500;
-                            getdata.Start();
                             client.UploadQeue.Add("get_connections");                            
                             clientPanel.Show();
                             comboBox3.Show();
@@ -219,13 +218,6 @@ namespace Project21
             if (!doctor)
             {
                 bike = new Bike(comPort);
-            }
-            else
-            {
-                Timer data = new Timer();
-                data.Tick += ClientData;
-                data.Interval = 500;
-                data.Start();
             }
             timer.Tick += Tick;
             timer.Interval = 500;
@@ -327,7 +319,7 @@ namespace Project21
         {
             clientname = comboBox3.SelectedItem.ToString();
             chart1.Series[0].Points.Clear();
-            client.UploadQeue.Add("get_alldata_" + comboBox3.SelectedItem);
+            client.UploadQeue.Add("set_" + comboBox3.SelectedItem);
         }
         private void Gui_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -376,5 +368,8 @@ namespace Project21
             return 0;
         }
     }
+    //start button
+    //uploadque.add("set_"+clientname);
+    //getdata.Start();
     
 }
