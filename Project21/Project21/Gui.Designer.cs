@@ -49,24 +49,11 @@ namespace Project21
             this.accNameBox = new System.Windows.Forms.TextBox();
             this.clientPanel = new System.Windows.Forms.Panel();
             this.button6 = new System.Windows.Forms.Button();
-            this.noodStop = new System.Windows.Forms.Button();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button5 = new System.Windows.Forms.Button();
-            this.client2Box = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.chatLabel = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.secondsv = new System.Windows.Forms.Label();
             this.minutesv = new System.Windows.Forms.Label();
             this.energyv = new System.Windows.Forms.Label();
@@ -84,8 +71,6 @@ namespace Project21
             this.distance = new System.Windows.Forms.Label();
             this.kmh = new System.Windows.Forms.Label();
             this.rpm = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.chatBox = new System.Windows.Forms.TextBox();
             this.pulse = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
@@ -277,24 +262,11 @@ namespace Project21
             this.clientPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("clientPanel.BackgroundImage")));
             this.clientPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.clientPanel.Controls.Add(this.button6);
-            this.clientPanel.Controls.Add(this.noodStop);
-            this.clientPanel.Controls.Add(this.textBox5);
-            this.clientPanel.Controls.Add(this.textBox4);
-            this.clientPanel.Controls.Add(this.textBox1);
-            this.clientPanel.Controls.Add(this.button5);
-            this.clientPanel.Controls.Add(this.client2Box);
             this.clientPanel.Controls.Add(this.label4);
             this.clientPanel.Controls.Add(this.label3);
             this.clientPanel.Controls.Add(this.comboBox3);
-            this.clientPanel.Controls.Add(this.chatLabel);
-            this.clientPanel.Controls.Add(this.button4);
             this.clientPanel.Controls.Add(this.button3);
-            this.clientPanel.Controls.Add(this.comboBox2);
             this.clientPanel.Controls.Add(this.chart1);
-            this.clientPanel.Controls.Add(this.comboBox1);
-            this.clientPanel.Controls.Add(this.textBox3);
-            this.clientPanel.Controls.Add(this.button2);
-            this.clientPanel.Controls.Add(this.button1);
             this.clientPanel.Controls.Add(this.secondsv);
             this.clientPanel.Controls.Add(this.minutesv);
             this.clientPanel.Controls.Add(this.energyv);
@@ -312,13 +284,11 @@ namespace Project21
             this.clientPanel.Controls.Add(this.distance);
             this.clientPanel.Controls.Add(this.kmh);
             this.clientPanel.Controls.Add(this.rpm);
-            this.clientPanel.Controls.Add(this.textBox2);
-            this.clientPanel.Controls.Add(this.chatBox);
             this.clientPanel.Controls.Add(this.pulse);
             this.clientPanel.Location = new System.Drawing.Point(11, 11);
             this.clientPanel.Margin = new System.Windows.Forms.Padding(2);
             this.clientPanel.Name = "clientPanel";
-            this.clientPanel.Size = new System.Drawing.Size(1106, 532);
+            this.clientPanel.Size = new System.Drawing.Size(1091, 532);
             this.clientPanel.TabIndex = 3;
             this.clientPanel.Visible = false;
             // 
@@ -336,92 +306,6 @@ namespace Project21
             this.button6.Text = "Historical data";
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
-            // noodStop
-            // 
-            this.noodStop.BackColor = System.Drawing.Color.Transparent;
-            this.noodStop.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("noodStop.BackgroundImage")));
-            this.noodStop.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.noodStop.FlatAppearance.BorderSize = 0;
-            this.noodStop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.noodStop.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.noodStop.ForeColor = System.Drawing.Color.Black;
-            this.noodStop.Location = new System.Drawing.Point(316, 447);
-            this.noodStop.Name = "noodStop";
-            this.noodStop.Size = new System.Drawing.Size(75, 23);
-            this.noodStop.TabIndex = 61;
-            this.noodStop.Text = "STOP";
-            this.noodStop.UseVisualStyleBackColor = false;
-            this.noodStop.Click += new System.EventHandler(this.noodStop_Click);
-            // 
-            // textBox5
-            // 
-            this.textBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(194)))), ((int)(((byte)(194)))));
-            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.ForeColor = System.Drawing.Color.DimGray;
-            this.textBox5.Location = new System.Drawing.Point(456, 417);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(26, 21);
-            this.textBox5.TabIndex = 60;
-            this.textBox5.Text = "min";
-            this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox5.Click += new System.EventHandler(this.textBox5_Click);
-            this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
-            // 
-            // textBox4
-            // 
-            this.textBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(194)))), ((int)(((byte)(194)))));
-            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.ForeColor = System.Drawing.Color.DimGray;
-            this.textBox4.Location = new System.Drawing.Point(522, 417);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(52, 21);
-            this.textBox4.TabIndex = 59;
-            this.textBox4.Text = "distance";
-            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox4.Click += new System.EventHandler(this.textBox4_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(194)))), ((int)(((byte)(194)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.Color.DimGray;
-            this.textBox1.Location = new System.Drawing.Point(492, 417);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(24, 21);
-            this.textBox1.TabIndex = 58;
-            this.textBox1.Text = "sec";
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.textBox1.Click += new System.EventHandler(this.textBox1_Click);
-            // 
-            // button5
-            // 
-            this.button5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button5.BackgroundImage")));
-            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(580, 417);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(64, 22);
-            this.button5.TabIndex = 57;
-            this.button5.Text = "Session";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // client2Box
-            // 
-            this.client2Box.AutoSize = true;
-            this.client2Box.Location = new System.Drawing.Point(53, 450);
-            this.client2Box.Name = "client2Box";
-            this.client2Box.Size = new System.Drawing.Size(93, 17);
-            this.client2Box.TabIndex = 56;
-            this.client2Box.Text = "Tweede client";
-            this.client2Box.UseVisualStyleBackColor = true;
-            this.client2Box.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // label4
             // 
@@ -457,32 +341,6 @@ namespace Project21
             this.comboBox3.Size = new System.Drawing.Size(231, 23);
             this.comboBox3.TabIndex = 50;
             // 
-            // chatLabel
-            // 
-            this.chatLabel.AutoSize = true;
-            this.chatLabel.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chatLabel.ForeColor = System.Drawing.Color.White;
-            this.chatLabel.Location = new System.Drawing.Point(811, 49);
-            this.chatLabel.Name = "chatLabel";
-            this.chatLabel.Size = new System.Drawing.Size(130, 15);
-            this.chatLabel.TabIndex = 53;
-            this.chatLabel.Text = "Chat met de dokter";
-            // 
-            // button4
-            // 
-            this.button4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button4.BackgroundImage")));
-            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(937, 409);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(105, 32);
-            this.button4.TabIndex = 52;
-            this.button4.Text = "broadcast";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
             // button3
             // 
             this.button3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button3.BackgroundImage")));
@@ -497,26 +355,6 @@ namespace Project21
             this.button3.Text = "refresh";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(194)))), ((int)(((byte)(194)))));
-            this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.ForeColor = System.Drawing.Color.DimGray;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "pulse",
-            "rpm",
-            "kmh",
-            "distance",
-            "reqPower",
-            "energy",
-            "actPower"});
-            this.comboBox2.Location = new System.Drawing.Point(168, 447);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 23);
-            this.comboBox2.TabIndex = 49;
             // 
             // chart1
             // 
@@ -537,66 +375,6 @@ namespace Project21
             this.chart1.Size = new System.Drawing.Size(357, 360);
             this.chart1.TabIndex = 48;
             this.chart1.Text = "chart1";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(194)))), ((int)(((byte)(194)))));
-            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.ForeColor = System.Drawing.Color.DimGray;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "PW",
-            "RS",
-            "PD",
-            "PT"});
-            this.comboBox1.Location = new System.Drawing.Point(413, 446);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(57, 23);
-            this.comboBox1.TabIndex = 47;
-            // 
-            // textBox3
-            // 
-            this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(194)))), ((int)(((byte)(194)))));
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.ForeColor = System.Drawing.Color.DimGray;
-            this.textBox3.Location = new System.Drawing.Point(480, 446);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(23, 23);
-            this.textBox3.TabIndex = 46;
-            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // button2
-            // 
-            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(515, 440);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(129, 33);
-            this.button2.TabIndex = 45;
-            this.button2.Text = "send command";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button1
-            // 
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(730, 410);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(105, 31);
-            this.button1.TabIndex = 44;
-            this.button1.Text = "Send";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // secondsv
             // 
@@ -802,33 +580,6 @@ namespace Project21
             this.rpm.TabIndex = 27;
             this.rpm.Text = "Rpm";
             // 
-            // textBox2
-            // 
-            this.textBox2.BackColor = System.Drawing.Color.White;
-            this.textBox2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.textBox2.Location = new System.Drawing.Point(730, 96);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(312, 310);
-            this.textBox2.TabIndex = 25;
-            // 
-            // chatBox
-            // 
-            this.chatBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(194)))), ((int)(((byte)(194)))));
-            this.chatBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.chatBox.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chatBox.ForeColor = System.Drawing.Color.DimGray;
-            this.chatBox.Location = new System.Drawing.Point(740, 454);
-            this.chatBox.Margin = new System.Windows.Forms.Padding(2);
-            this.chatBox.Name = "chatBox";
-            this.chatBox.Size = new System.Drawing.Size(289, 16);
-            this.chatBox.TabIndex = 24;
-            this.chatBox.Text = "message";
-            this.chatBox.Enter += new System.EventHandler(this.chatBox_Enter);
-            // 
             // pulse
             // 
             this.pulse.AutoSize = true;
@@ -854,7 +605,7 @@ namespace Project21
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(76)))), ((int)(((byte)(61)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1113, 537);
+            this.ClientSize = new System.Drawing.Size(688, 537);
             this.Controls.Add(this.clientPanel);
             this.Controls.Add(this.loginPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -907,33 +658,18 @@ namespace Project21
         private System.Windows.Forms.Label distance;
         private System.Windows.Forms.Label kmh;
         private System.Windows.Forms.Label rpm;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox chatBox;
         private System.Windows.Forms.Label pulse;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
-        private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label passwordLabel;
         private System.Windows.Forms.Label usernameLabel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label chatLabel;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.IO.FileSystemWatcher fileSystemWatcher1;
-        private System.Windows.Forms.CheckBox client2Box;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button noodStop;
         private System.Windows.Forms.Button button6;
     }
 }

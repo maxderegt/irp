@@ -49,15 +49,7 @@ namespace Project21
             
             //Create client, start function gets called when the user logs in
             client = new Client(Environment.UserName);
-            
-            textBox2.ReadOnly = true;
-            textBox2.Multiline = true;
-            textBox2.ScrollBars = ScrollBars.Both;
-            textBox2.WordWrap = false;
-            comboBox2.SelectedIndexChanged += combo2SelectedIndexChanged;
             comboBox3.SelectedIndexChanged += combo3SelectedIndexChanged;
-            comboBox2.SelectedIndex = 0;
-            comboBox1.SelectedIndex = 0;
             graph = new Graph();
             graph.Hide();
         }
@@ -70,14 +62,7 @@ namespace Project21
             download.Tick += IncomingData;
             download.Interval = 1;
             download.Start();
-            textBox2.ReadOnly = true;
-            textBox2.Multiline = true;
-            textBox2.ScrollBars = ScrollBars.Both;
-            textBox2.WordWrap = false;
-            comboBox2.SelectedIndexChanged += combo2SelectedIndexChanged;
             comboBox3.SelectedIndexChanged += combo3SelectedIndexChanged;
-            comboBox2.SelectedIndex = 0;
-            comboBox1.SelectedIndex = 0;
             loginPanel.Hide();
             comPanel.Hide();
             clientPanel.Show();
@@ -151,19 +136,7 @@ namespace Project21
                     //Console.WriteLine("Received word: " + words[0]);
                     switch (words[0])
                     {
-                        case "message":
-                            string sent = words[1];
-                            if (doctor)
-                            {
-                                if (comboBox3.SelectedItem != null)
-                                    if (sent.Equals(comboBox3.SelectedItem.ToString()) || sent.Equals("Dokter"))
-                                        textBox2.AppendText(Environment.NewLine + words[2]);
-                            }
-                            else
-                            {
-                                textBox2.AppendText(Environment.NewLine + words[2]);
-                            }
-                            break;
+                        
                         case "command":
                             bike.bikeCom.SendCommand(words[1]);
                             break;
@@ -208,21 +181,9 @@ namespace Project21
                             getdata.Start();
                             client.UploadQeue.Add("get_connections");                            
                             clientPanel.Show();
-                            chatBox.Focus();
-                            comboBox1.Show();
-                            button2.Show();
-                            textBox3.Show();
                             comboBox3.Show();
                             button3.Show();
-                            button4.Show();
-                            client2Box.Show();
-                            noodStop.Show();
-                            textBox5.Show();
-                            textBox1.Show();
-                            textBox4.Show();
-                            button5.Show();
                             button6.Show();
-                            chatLabel.Text = "Chat met de cliënt";
                             comPanel.Hide();
                             loginPanel.Hide();
                             this.AutoSize = false;
@@ -247,18 +208,8 @@ namespace Project21
             comPanel.Parent = this;
             clientPanel.Parent = this;
             comPanel.Hide();
-            comboBox1.Hide();
-            button2.Hide();
-            textBox3.Hide();
             comboBox3.Hide();
             button3.Hide();
-            button4.Hide();
-            client2Box.Hide();
-            noodStop.Hide();
-            textBox5.Hide();
-            textBox1.Hide();
-            textBox4.Hide();
-            button5.Hide();
             button6.Hide();
         }
 
@@ -267,7 +218,6 @@ namespace Project21
             comPort = comTextBox.Text;
             comPanel.Hide();
             clientPanel.Show();
-            AcceptButton = button1;
             if (!doctor)
             {
                 bike = new Bike(comPort);
@@ -345,34 +295,7 @@ namespace Project21
                     minutesv.Text = bike.bikeCom.BikeList[bike.bikeCom.BikeList.Count - 1].minutes.ToString();
                     secondsv.Text = bike.bikeCom.BikeList[bike.bikeCom.BikeList.Count - 1].seconds.ToString();
                     actpowerv.Text = bike.bikeCom.BikeList[bike.bikeCom.BikeList.Count - 1].actPower.ToString();
-
-                    //updating the graph
-                    switch (selected)
-                    {
-                        case "pulse":
-                            chart1.Series[0].Points.Add(bike.bikeCom.BikeList[bike.bikeCom.BikeList.Count - 1].pulse);
-                            break;
-                        case "rpm":
-                            chart1.Series[0].Points.Add(bike.bikeCom.BikeList[bike.bikeCom.BikeList.Count - 1].rpm);
-                            break;
-                        case "kmh":
-                            chart1.Series[0].Points.Add(bike.bikeCom.BikeList[bike.bikeCom.BikeList.Count - 1].kmh);
-                            break;
-                        case "distance":
-                            chart1.Series[0].Points.Add(bike.bikeCom.BikeList[bike.bikeCom.BikeList.Count - 1].distance);
-                            break;
-                        case "reqPower":
-                            chart1.Series[0].Points.Add(bike.bikeCom.BikeList[bike.bikeCom.BikeList.Count - 1].reqPower);
-                            break;
-                        case "energy":
-                            chart1.Series[0].Points.Add(bike.bikeCom.BikeList[bike.bikeCom.BikeList.Count - 1].energy);
-                            break;
-                        case "actPwer":
-                            chart1.Series[0].Points.Add(bike.bikeCom.BikeList[bike.bikeCom.BikeList.Count - 1].actPower);
-                            break;
-
-                    }
-
+                    chart1.Series[0].Points.Add(bike.bikeCom.BikeList[bike.bikeCom.BikeList.Count - 1].pulse);
                     if (chart1.Series[0].Points.Count == 30) chart1.Series[0].Points.RemoveAt(0);
                 }
             }
@@ -395,171 +318,35 @@ namespace Project21
                     minutesv.Text = Results[Results.Count - 1][9].ToString();
                     secondsv.Text = Results[Results.Count - 1][10].ToString();
                     actpowerv.Text = Results[Results.Count - 1][11].ToString();
-
-                    //updating the graph
-                    switch (selected)
-                    {
-                        case "pulse":
-                            chart1.Series[0].Points.Add(Int32.Parse(Results[Results.Count - 1][3]));
-                            break;
-                        case "rpm":
-                            chart1.Series[0].Points.Add(Int32.Parse(Results[Results.Count - 1][4]));
-                            break;
-                        case "kmh":
-                            chart1.Series[0].Points.Add(Int32.Parse(Results[Results.Count - 1][5]));
-                            break;
-                        case "distance":
-                            chart1.Series[0].Points.Add(Int32.Parse(Results[Results.Count - 1][6]));
-                            break;
-                        case "reqPower":
-                            chart1.Series[0].Points.Add(Int32.Parse(Results[Results.Count - 1][7]));
-                            break;
-                        case "energy":
-                            chart1.Series[0].Points.Add(Int32.Parse(Results[Results.Count - 1][8]));
-                            break;
-                        case "actPwer":
-                            chart1.Series[0].Points.Add(Int32.Parse(Results[Results.Count - 1][11]));
-                            break;
-
-                    }
+                    chart1.Series[0].Points.Add(Int32.Parse(Results[Results.Count - 1][3]));
                 }
 
                 while (chart1.Series[0].Points.Count >= 30) chart1.Series[0].Points.RemoveAt(0);
             }
         }
-
-        private void combo2SelectedIndexChanged(object sender, System.EventArgs e)
-        {
-            chart1.Series[0].Points.Clear();
-            selected = comboBox2.SelectedItem.ToString();
-        }
+        
         private void combo3SelectedIndexChanged(object sender, System.EventArgs e)
         {
             clientname = comboBox3.SelectedItem.ToString();
             chart1.Series[0].Points.Clear();
-            textBox2.Clear();
             client.UploadQeue.Add("get_alldata_" + comboBox3.SelectedItem);
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (doctor)
-            {
-                string message = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss ") + " Dokter : " + chatBox.Text;
-                client.UploadQeue.Add("message_" + clientname + "_" + message);
-            }
-            else
-            {
-                string message = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss ") + clientname + " : " + chatBox.Text;
-                client.UploadQeue.Add("message_" + clientname + "_" + message);
-            }
-            chatBox.Clear();
-            client.UploadQeue.Add("update_" + clientname);
-
-        }
-
         private void Gui_FormClosing(object sender, FormClosingEventArgs e)
         {
             Environment.Exit(Environment.ExitCode);
         }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            if(comboBox3.SelectedItem != null)
-            if (!comboBox1.SelectedItem.ToString().Equals("RS"))
-            {
-                client.UploadQeue.Add("command_" + comboBox3.SelectedItem.ToString() + "_" +
-                                      comboBox1.SelectedItem.ToString() + " " + textBox3.Text);
-            }
-            else
-            {
-                client.UploadQeue.Add("command_" + comboBox3.SelectedItem.ToString() + "_" +
-                                         comboBox1.SelectedItem.ToString());
-            }
-        }
+        
 
         private void button3_Click(object sender, EventArgs e)
         {
             client.UploadQeue.Add("get_connections");
         }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            string message = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss ") + " Dokter Broadcast : " + chatBox.Text;
-            client.UploadQeue.Add("message_all_" + message);
-            chatBox.Clear();
-        }
-
+        
         private void loginPanel_Enter(object sender, EventArgs e)
         {
             AcceptButton = logInButton;
             accNameBox.Focus();
         }
-
-        private void chatBox_Enter(object sender, EventArgs e)
-        {
-            chatBox.Clear();
-
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            if (!secondClient)
-            {
-                secondClient = true;
-                second.Show();
-                second.Location = new Point(this.Location.X, this.Location.Y + 576);
-            }
-            else
-            {
-                secondClient = false;
-                second.Hide();
-            }
-        }
-
-        private void textBox5_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox5_Click(object sender, EventArgs e)
-        {
-            textBox5.Clear();
-        }
-
-        private void textBox1_Click(object sender, EventArgs e)
-        {
-            textBox1.Clear();
-        }
-
-        private void textBox4_Click(object sender, EventArgs e)
-        {
-            textBox4.Clear();
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            int result;
-            if(comboBox3.SelectedItem != null)
-            if (Int32.TryParse(textBox5.Text, out result) && Int32.TryParse(textBox1.Text, out result) &&
-                Int32.TryParse(textBox4.Text, out result))
-            {
-                if (Int32.Parse(textBox5.Text) > 99) textBox5.Text = "99";
-                if (Int32.Parse(textBox1.Text) > 59) textBox5.Text = "59";
-                if (Int32.Parse(textBox5.Text) > 999) textBox5.Text = "999";
-                if (Int32.Parse(textBox5.Text) < 0) textBox5.Text = "0";
-                if (Int32.Parse(textBox1.Text) < 0) textBox5.Text = "0";
-                if (Int32.Parse(textBox4.Text) < 0) textBox5.Text = "0";
-                client.UploadQeue.Add("command_"+ comboBox3.SelectedItem.ToString() + "_PT " + textBox5.Text + textBox1.Text);
-                client.UploadQeue.Add("command_" + comboBox3.SelectedItem.ToString() + "_PD " + textBox4.Text);
-            }
-        }
-
-        private void noodStop_Click(object sender, EventArgs e)
-        {
-            client.UploadQeue.Add("emergency_" + clientname);
-        }
-
         private void button6_Click(object sender, EventArgs e)
         {
             if (comboBox3.SelectedItem != null)

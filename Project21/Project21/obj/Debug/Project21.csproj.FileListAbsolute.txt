@@ -22,3 +22,4 @@ C:\Users\max\Documents\GitHub\irp\Project21\Project21\bin\Debug\Project21.pdb
 C:\Users\max\Documents\GitHub\irp\Project21\Project21\bin\Debug\Newtonsoft.Json.dll
 C:\Users\max\Documents\GitHub\irp\Project21\Project21\bin\Debug\Newtonsoft.Json.xml
 C:\Users\max\Documents\GitHub\irp\Project21\Project21\obj\Debug\Project21.exe
+C:\Users\max\Documents\GitHub\irp\Project21\Project21\obj\Debug\Project21.Properties.Resources.resources
