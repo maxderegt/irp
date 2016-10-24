@@ -377,9 +377,11 @@ namespace Project21
             {
                 VO2max = (0.00193*workload + 0.326)/(0.769*HRss - 56.1)*1000;
             }
-            int leeftijd = 35;
+            int leeftijd = Int32.Parse(comboBox1.SelectedText);
             switch (leeftijd)
             {
+                case 30:
+                    break;
                 case 35:
                     VO2max = VO2max * 0.87;
                     break;

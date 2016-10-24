@@ -290,14 +290,14 @@ namespace Project21
             this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
-            "<30",
-            "30-35",
-            "35-40",
-            "40-45",
-            "45-50",
-            "50-55",
-            "55-60",
-            "60-65"});
+            "30",
+            "35",
+            "40",
+            "45",
+            "50",
+            "55",
+            "60",
+            "65"});
             this.comboBox1.Location = new System.Drawing.Point(584, 121);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(53, 21);
