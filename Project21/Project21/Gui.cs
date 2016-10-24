@@ -133,8 +133,7 @@ namespace Project21
                     break;
 
                 case "bereken-VO2":
-                    double distance = (bike.bikeCom.BikeList[bike.bikeCom.BikeList.Count - 1].distance - beginDistance) / 10;
-                    VO2max = Vo2Max(distance);
+                    VO2max = Vo2Max();
                     beginTijd = counter;
                     sessieState = "cooldown";
                     break;
@@ -360,33 +359,55 @@ namespace Project21
             accNameBox.Focus();
         }
 
-        private double Vo2Max(double distance)
+        private double Vo2Max(/*int HRss*/)
         {
-            var af = distance;
-            var mi = 2;
-            var se = 0;
-            var tt=0.0;
-            var hh=0.0;
-            var pm=0.0;
-            var vo=0.0;
-
-            tt = mi + se/60.0;
-
-            if (tt > 0)
+            double VO2max;
+            double workload = bike.bikeCom.BikeList[bike.bikeCom.BikeList.Count - 1].actPower;
+            int HRss = 90; //dit moet gemiddelde HR zijn van de afgelopen 2 minuten na een HRss
+            workload = workload * 6.12;
+            bool male = checkBox1.Checked;
+            if (male)
             {
-                hh = (af * 1000) / tt;
-                pm = 0.8 + (0.1894393 * Math.Exp(-0.012778 * tt)) + (0.2989558 * Math.Exp(-0.1932605 * tt));
-                vo = -4.60 + (0.182258 * hh) + (0.000104 * hh * hh);
-                return Math.Round(vo / pm);
+                VO2max = (0.00212*workload + 0.299)/(0.769*HRss - 48.5)*100;
             }
-
-            return 0;
+            else
+            {
+                VO2max = (0.00193*workload + 0.326)/(0.769*HRss - 56.1)*100;
+            }
+            int leeftijd = 35;
+            switch (leeftijd)
+            {
+                case 35:
+                    VO2max = VO2max * 0.87;
+                    break;
+                case 40:
+                    VO2max = VO2max * 0.83;
+                    break;
+                case 45:
+                    VO2max = VO2max * 0.78;
+                    break;
+                case 50:
+                    VO2max = VO2max * 0.75;
+                    break;
+                case 55:
+                    VO2max = VO2max * 0.71;
+                    break;
+                case 60:
+                    VO2max = VO2max * 0.68;
+                    break;
+                case 65:
+                    VO2max = VO2max * 0.65;
+                    break;
+            }
+            label6.Text = VO2max.ToString();
+            return VO2max;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             client.UploadQeue.Add("session_"+client.userName+" "+DateTime.Now);
             timer.Start();
+            chart1.Series.Clear();
             sessieUpdater.Start();
         }
     }

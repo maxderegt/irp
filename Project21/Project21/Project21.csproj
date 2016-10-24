@@ -100,6 +100,8 @@
   <ItemGroup>
     <Content Include="Environment.txt" />
     <Content Include="Hmap.png" />
+    <None Include="Resources\clientPanel.BackgroundImage.png" />
+    <None Include="Resources\button3.BackgroundImage.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

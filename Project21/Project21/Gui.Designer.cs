@@ -48,6 +48,9 @@ namespace Project21
             this.passBox = new System.Windows.Forms.TextBox();
             this.accNameBox = new System.Windows.Forms.TextBox();
             this.clientPanel = new System.Windows.Forms.Panel();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
@@ -55,6 +58,8 @@ namespace Project21
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.loginPanel.SuspendLayout();
             this.comPanel.SuspendLayout();
             this.clientPanel.SuspendLayout();
@@ -242,6 +247,11 @@ namespace Project21
             this.clientPanel.BackColor = System.Drawing.Color.Transparent;
             this.clientPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("clientPanel.BackgroundImage")));
             this.clientPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.clientPanel.Controls.Add(this.label6);
+            this.clientPanel.Controls.Add(this.label5);
+            this.clientPanel.Controls.Add(this.checkBox1);
+            this.clientPanel.Controls.Add(this.label4);
+            this.clientPanel.Controls.Add(this.comboBox1);
             this.clientPanel.Controls.Add(this.button1);
             this.clientPanel.Controls.Add(this.label3);
             this.clientPanel.Controls.Add(this.comboBox3);
@@ -250,15 +260,60 @@ namespace Project21
             this.clientPanel.Location = new System.Drawing.Point(11, 11);
             this.clientPanel.Margin = new System.Windows.Forms.Padding(2);
             this.clientPanel.Name = "clientPanel";
-            this.clientPanel.Size = new System.Drawing.Size(1085, 532);
+            this.clientPanel.Size = new System.Drawing.Size(703, 532);
             this.clientPanel.TabIndex = 3;
             this.clientPanel.Visible = false;
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.BackColor = System.Drawing.Color.Transparent;
+            this.checkBox1.Location = new System.Drawing.Point(450, 123);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(52, 17);
+            this.checkBox1.TabIndex = 66;
+            this.checkBox1.Text = "man?";
+            this.checkBox1.UseVisualStyleBackColor = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(541, 124);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(37, 13);
+            this.label4.TabIndex = 65;
+            this.label4.Text = "leeftijd";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "<30",
+            "30-35",
+            "35-40",
+            "40-45",
+            "45-50",
+            "50-55",
+            "55-60",
+            "60-65"});
+            this.comboBox1.Location = new System.Drawing.Point(584, 121);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(53, 21);
+            this.comboBox1.TabIndex = 64;
+            // 
             // button1
             // 
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(450, 86);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(121, 33);
+            this.button1.Size = new System.Drawing.Size(138, 33);
             this.button1.TabIndex = 63;
             this.button1.Text = "Voer astrand test uit";
             this.button1.UseVisualStyleBackColor = true;
@@ -271,9 +326,9 @@ namespace Project21
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(154, 49);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(147, 15);
+            this.label3.Size = new System.Drawing.Size(155, 15);
             this.label3.TabIndex = 54;
-            this.label3.Text = "Grafiek fietsgegevens";
+            this.label3.Text = "astrand-test Applicatie";
             // 
             // comboBox3
             // 
@@ -326,6 +381,24 @@ namespace Project21
             this.fileSystemWatcher1.EnableRaisingEvents = true;
             this.fileSystemWatcher1.SynchronizingObject = this;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(208, 127);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(113, 13);
+            this.label5.TabIndex = 67;
+            this.label5.Text = "VO2max [ml/kg/min] =";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(317, 127);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(115, 13);
+            this.label6.TabIndex = 68;
+            this.label6.Text = "Test nog niet compleet";
+            // 
             // clientGui
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -334,7 +407,7 @@ namespace Project21
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(76)))), ((int)(((byte)(61)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1090, 537);
+            this.ClientSize = new System.Drawing.Size(729, 537);
             this.Controls.Add(this.clientPanel);
             this.Controls.Add(this.loginPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -381,5 +454,10 @@ namespace Project21
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.IO.FileSystemWatcher fileSystemWatcher1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
     }
 }
