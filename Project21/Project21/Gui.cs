@@ -29,7 +29,12 @@ namespace Project21
         private bool graph1 = false;
         clientGui second;
         private Graph graph;
+
         private string sessieState = "warming-up";
+        private int counter = 0;
+        private int power = 25;
+        private int beginDistance = 0;
+        private int beginTijd = 0;
 
         private Timer download;
 
@@ -51,7 +56,7 @@ namespace Project21
 
             sessieUpdater = new Timer();
             sessieUpdater.Tick += SessieUpdater;
-            sessieUpdater.Interval = 1;
+            sessieUpdater.Interval = 1000;
 
             //Create client, start function gets called when the user logs in
             client = new Client(Environment.UserName);
@@ -87,9 +92,34 @@ namespace Project21
 
         private void SessieUpdater(Object sender, EventArgs e)
         {
+            counter++;
             switch (sessieState)
             {
+                case "warming-up":
+                    bike.bikeCom.SendCommand("PW 25");
+                    if (counter > 120)
+                        sessieState = "opregelen-power";
+                    break;
 
+                case "opregelen-power":
+                    if (bike.bikeCom.BikeList[bike.bikeCom.BikeList.Count - 1].pulse < 130)
+                    {
+                        power += 5;
+                        bike.bikeCom.SendCommand("PW " + power);
+                    }
+                    else
+                        sessieState = "set-begin";
+                    break;
+
+                case "set-begin":
+                    beginDistance = bike.bikeCom.BikeList[bike.bikeCom.BikeList.Count - 1].distance;
+                    beginTijd = counter;
+                    sessieState = "steady-state";
+                    break;
+
+                case "steady-state":
+
+                    break;
             }
         }
 
