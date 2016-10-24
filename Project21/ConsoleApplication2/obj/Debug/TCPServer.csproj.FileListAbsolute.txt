@@ -1,0 +1,6 @@
+C:\Users\max\Documents\jaar 2\project 2.1\Project-2.1-Fiets\Project21\ConsoleApplication2\bin\Debug\ConsoleApplication2.exe.config
+C:\Users\max\Documents\jaar 2\project 2.1\Project-2.1-Fiets\Project21\ConsoleApplication2\bin\Debug\ConsoleApplication2.exe
+C:\Users\max\Documents\jaar 2\project 2.1\Project-2.1-Fiets\Project21\ConsoleApplication2\bin\Debug\ConsoleApplication2.pdb
+C:\Users\max\Documents\jaar 2\project 2.1\Project-2.1-Fiets\Project21\ConsoleApplication2\obj\Debug\TCPServer.csprojResolveAssemblyReference.cache
+C:\Users\max\Documents\jaar 2\project 2.1\Project-2.1-Fiets\Project21\ConsoleApplication2\obj\Debug\ConsoleApplication2.exe
+C:\Users\max\Documents\jaar 2\project 2.1\Project-2.1-Fiets\Project21\ConsoleApplication2\obj\Debug\ConsoleApplication2.pdb

@@ -1,0 +1,12 @@
+C:\Users\max\Documents\jaar 2\project 2.1\Project-2.1-Fiets\Project21\Project21\bin\Debug\Project21.exe.config
+C:\Users\max\Documents\jaar 2\project 2.1\Project-2.1-Fiets\Project21\Project21\obj\Debug\Project21.csprojResolveAssemblyReference.cache
+C:\Users\max\Documents\jaar 2\project 2.1\Project-2.1-Fiets\Project21\Project21\bin\Debug\Project21.exe
+C:\Users\max\Documents\jaar 2\project 2.1\Project-2.1-Fiets\Project21\Project21\bin\Debug\Project21.pdb
+C:\Users\max\Documents\jaar 2\project 2.1\Project-2.1-Fiets\Project21\Project21\obj\Debug\Project21.exe
+C:\Users\max\Documents\jaar 2\project 2.1\Project-2.1-Fiets\Project21\Project21\obj\Debug\Project21.pdb
+C:\Users\max\Documents\jaar 2\project 2.1\Project-2.1-Fiets\Project21\Project21\bin\Debug\Newtonsoft.Json.dll
+C:\Users\max\Documents\jaar 2\project 2.1\Project-2.1-Fiets\Project21\Project21\bin\Debug\Newtonsoft.Json.xml
+C:\Users\max\Documents\jaar 2\project 2.1\Project-2.1-Fiets\Project21\Project21\obj\Debug\Project21.csproj.GenerateResource.Cache
+C:\Users\max\Documents\jaar 2\project 2.1\Project-2.1-Fiets\Project21\Project21\obj\Debug\Project21.clientGui.resources
+C:\Users\max\Documents\jaar 2\project 2.1\Project-2.1-Fiets\Project21\Project21\obj\Debug\Project21.Graph.resources
+C:\Users\max\Documents\jaar 2\project 2.1\Project-2.1-Fiets\Project21\Project21\obj\Debug\Project21.PopupForm.resources

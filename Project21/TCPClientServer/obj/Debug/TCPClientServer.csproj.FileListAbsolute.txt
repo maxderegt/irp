@@ -1,0 +1,6 @@
+C:\Users\max\Documents\jaar 2\project 2.1\Project-2.1-Fiets\Project21\TCPClientServer\bin\Debug\TCPClientServer.exe.config
+C:\Users\max\Documents\jaar 2\project 2.1\Project-2.1-Fiets\Project21\TCPClientServer\bin\Debug\TCPClientServer.exe
+C:\Users\max\Documents\jaar 2\project 2.1\Project-2.1-Fiets\Project21\TCPClientServer\bin\Debug\TCPClientServer.pdb
+C:\Users\max\Documents\jaar 2\project 2.1\Project-2.1-Fiets\Project21\TCPClientServer\obj\Debug\TCPClientServer.csprojResolveAssemblyReference.cache
+C:\Users\max\Documents\jaar 2\project 2.1\Project-2.1-Fiets\Project21\TCPClientServer\obj\Debug\TCPClientServer.exe
+C:\Users\max\Documents\jaar 2\project 2.1\Project-2.1-Fiets\Project21\TCPClientServer\obj\Debug\TCPClientServer.pdb
