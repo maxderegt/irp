@@ -32,8 +32,8 @@ namespace Project21
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(clientGui));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.loginPanel = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.comPanel = new System.Windows.Forms.Panel();
@@ -362,16 +362,16 @@ namespace Project21
             this.chart1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.chart1.BackImageAlignment = System.Windows.Forms.DataVisualization.Charting.ChartImageAlignmentStyle.Center;
             this.chart1.BorderlineColor = System.Drawing.Color.Black;
-            chartArea2.AxisX.Maximum = 30D;
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
+            chartArea3.AxisX.Maximum = 30D;
+            chartArea3.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea3);
             this.chart1.Location = new System.Drawing.Point(34, 85);
             this.chart1.Name = "chart1";
-            series2.ChartArea = "ChartArea1";
-            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-            series2.IsVisibleInLegend = false;
-            series2.Name = "Series1";
-            this.chart1.Series.Add(series2);
+            series3.ChartArea = "ChartArea1";
+            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series3.IsVisibleInLegend = false;
+            series3.Name = "Series1";
+            this.chart1.Series.Add(series3);
             this.chart1.Size = new System.Drawing.Size(357, 360);
             this.chart1.TabIndex = 48;
             this.chart1.Text = "chart1";
@@ -605,7 +605,7 @@ namespace Project21
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(76)))), ((int)(((byte)(61)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(688, 537);
+            this.ClientSize = new System.Drawing.Size(1090, 537);
             this.Controls.Add(this.clientPanel);
             this.Controls.Add(this.loginPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
