@@ -102,15 +102,8 @@ namespace Project21
                 case "warming-up":
                     bike.bikeCom.SendCommand("PW 25");
                     if (counter > 120)
-                        sessieState = "set-begin";
+                        sessieState = "voorbereiding";
                     break;
-
-                case "set-begin":
-                    beginDistance = bike.bikeCom.BikeList[bike.bikeCom.BikeList.Count - 1].distance;
-                    beginTijd = counter;
-                    sessieState = "steady-state";
-                    break;
-
                 case "voorbereiding":
                     if (counter % 60 == 0)
                         UpdateData();
@@ -124,7 +117,7 @@ namespace Project21
                         power -= 5;
                         bike.bikeCom.SendCommand("PW " + power);
                     }
-                    else if (bike.bikeCom.BikeList[bike.bikeCom.BikeList.Count - 1].pulse < (208 - int.Parse(comboBox1.SelectedText) * 0.7))
+                    if (bike.bikeCom.BikeList[bike.bikeCom.BikeList.Count - 1].pulse > (208 - int.Parse(comboBox1.SelectedText) * 0.7))
                     {
                         bike.bikeCom.SendCommand("PW 25");
                         sessieState = "stop-sessie";
@@ -149,14 +142,14 @@ namespace Project21
                         power -= 5;
                         bike.bikeCom.SendCommand("PW " + power);
                     }
-                    else if (bike.bikeCom.BikeList[bike.bikeCom.BikeList.Count - 1].pulse < (208 - int.Parse(comboBox1.SelectedText) * 0.7))
+                    if (bike.bikeCom.BikeList[bike.bikeCom.BikeList.Count - 1].pulse > (208 - int.Parse(comboBox1.SelectedText) * 0.7))
                     {
                         bike.bikeCom.SendCommand("PW 25");
                         sessieState = "stop-sessie";
                     }
                     if (counter > 480)
                     {
-                        if (((HR[0] - HR[5] < -5) && (HR[0] - HR[5] > 5)) || ((HR[5] - HR[9] < -5) && (HR[5] - HR[9] > 5)))
+                        if (((HR[0] - HR[4] > -5) && (HR[0] - HR[4] < 5)) || ((HR[4] - HR[8] > -5) && (HR[4] - HR[8] < 5)))
                         {
                             int total = 0;
                             int aantal = 0;
@@ -165,7 +158,8 @@ namespace Project21
                                 total += hr;
                                 total++;
                             }
-                            Vo2Max(total / aantal);
+                            label6.Text = Vo2Max(total / aantal).ToString();
+                            
                         }
                         sessieState = "cooldown";
                     }    
@@ -395,11 +389,10 @@ namespace Project21
             accNameBox.Focus();
         }
 
-        private double Vo2Max(int HRsss)
+        private double Vo2Max(int HRss)
         {
             double VO2max;
             double workload = bike.bikeCom.BikeList[bike.bikeCom.BikeList.Count - 1].actPower;
-            int HRss = HRsss; //dit moet gemiddelde HR zijn van de afgelopen 2 minuten na een HRss
             workload = workload * 6.12;
             bool male = checkBox1.Checked;
             if (male)
