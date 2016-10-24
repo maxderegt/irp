@@ -340,3 +340,22 @@ namespace Project21
         }
     }
 }
+/*
+function bepaalVO2maxAfstand()
+{
+    var af = parseFloat(form.afstand.options[form.afstand.selectedIndex].value);
+    var uu = parseFloat(form.uur.value);
+    var mi = parseFloat(form.min.value);
+    var se = parseFloat(form.sec.value);
+    var tt, hh, pm, vo;
+
+    tt = uu * 60.0 + mi + se / 60.0
+
+ if (tt > 0)
+    {
+        hh = (af * 1000) / tt;
+        pm = 0.8 + (0.1894393 * Math.exp(-0.012778 * tt)) + (0.2989558 * Math.exp(-0.1932605 * tt));
+        vo = -4.60 + (0.182258 * hh) + (0.000104 * hh * hh);
+        document.opname.elements[5].value = Math.round(vo / pm);
+    }
+    */
