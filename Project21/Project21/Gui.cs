@@ -248,9 +248,6 @@ namespace Project21
                             break;
                         case "doctor":
                             doctor = true;
-                            timer.Tick += Tick;
-                            timer.Interval = 500;
-                            timer.Start();
                             client.UploadQeue.Add("get_connections");                            
                             clientPanel.Show();
                             comboBox3.Show();
@@ -292,8 +289,6 @@ namespace Project21
             {
                 bike = new Bike(comPort);
             }
-            timer.Tick += Tick;
-            timer.Interval = 500;
             if (!doctor)
             {
                 client.UploadQeue.Add("get_messages_" + clientname);
@@ -336,6 +331,14 @@ namespace Project21
                 clientname = name;
                 passBox.Clear();
             }
+        }
+
+        private void UpdateData()
+        {
+            bike.bikeCom.RequestData();
+            client.UploadQeue.Add("bike_" + clientname + "_" + bike.bikeCom.BikeList[bike.bikeCom.BikeList.Count - 1].GetAll());
+            chart1.Series[0].Points.Add(bike.bikeCom.BikeList[bike.bikeCom.BikeList.Count - 1].pulse);
+            if (chart1.Series[0].Points.Count == 30) chart1.Series[0].Points.RemoveAt(0);
         }
 
         private void Tick(object sender, EventArgs e)
@@ -407,9 +410,11 @@ namespace Project21
             {
                 VO2max = (0.00193*workload + 0.326)/(0.769*HRss - 56.1)*1000;
             }
-            int leeftijd = 35;
+            int leeftijd = Int32.Parse(comboBox1.SelectedText);
             switch (leeftijd)
             {
+                case 30:
+                    break;
                 case 35:
                     VO2max = VO2max * 0.87;
                     break;
